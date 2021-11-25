@@ -45,7 +45,7 @@ bot.onText(/\/karnivora/, (msg) => {
     );
 });
 
-bot.onText(/\/herbivora => {
+bot.onText(/\/herbivora/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
@@ -59,7 +59,7 @@ bot.onText(/\/herbivora => {
     );
 });
 
-bot.onText(/\/omnivora
+bot.onText(/\/omnivora/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
