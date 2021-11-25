@@ -24,9 +24,9 @@ bot.onText(/\/jenis_makhluk_hidup/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `
-            click/manusia \n
-            click/hewan \n
-            click/tumbuhan
+            click /manusia \n
+            click /hewan \n
+            click /tumbuhan
         `
     );
 });
@@ -35,8 +35,8 @@ bot.onText(/\/manusia/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `
-            click/Pria \n
-            click/Wanita
+            click /Pria \n
+            click /Wanita
         `
     );
 });
