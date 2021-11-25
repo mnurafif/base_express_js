@@ -15,11 +15,11 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /jenis makhluk hidup`
+        click /jenis_makhluk_hidup`
     );
 });
 
-bot.onText(/\/jenis makhluk hidup/, (msg) => {
+bot.onText(/\/jenis_makhluk_hidup/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
