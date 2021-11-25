@@ -15,38 +15,60 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /jenis_makhluk_hidup`
+        click /jenis_hewan`
     );
 });
 
-bot.onText(/\/jenis_makhluk_hidup/, (msg) => {
+bot.onText(/\/jenis_hewan/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
         `
-            click /manusia \n
-            click /hewan \n
-            click /tumbuhan
+            click /karnivora \n
+            click /herbivora \n
+            click /omnivora
         `
     );
 });
-bot.onText(/\/manusia/, (msg) => {
+bot.onText(/\/karnivora/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
         `
-            click /Pria \n
-            click /Wanita
+           Singa \n
+           Serigala \n
+           Harimau \n
+           Buaya \n
+           Cheetah
+          
         `
     );
 });
 
-bot.onText(/\/Pria/, (msg) => {
+bot.onText(/\/herbivora => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
         `
-  https://www.google.com/search?q=pria&sxsrf=AOaemvKd7dYezj1iAnOM_ALpYYmbfrjwQw:1637824622428&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj1vMuW_LL0AhUsILcAHY0mAE0Q_AUoAXoECAIQAw&biw=1280&bih=569&dpr=1.5
+        Kambing \n
+        Sapi \n
+        Kuda \n
+        Unta \n
+        Kerbau
+        `
+    );
+});
+
+bot.onText(/\/omnivora
+    global_msg_id = msg.chat.id;
+    bot.sendMessage(
+        global_msg_id,
+        `
+        Ikan lele \n
+        Kura-kura \n
+        Landak \n
+        Tupai tanah \n
+        Burung gagak
         `
     );
 });
