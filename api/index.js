@@ -15,68 +15,62 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /jenis_hewan`
+        click /show_url`
     );
 });
 
-bot.onText(/\/jenis_hewan/, (msg) => {
+bot.onText(/\/show_url/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
         `
-            click /karnivora \n
-            click /herbivora \n
-            click /omnivora
-        `
-    );
-});
-bot.onText(/\/karnivora/, (msg) => {
-    global_msg_id = msg.chat.id;
-    bot.sendMessage(
-        global_msg_id,
-        `
-           Singa \n
-           Serigala \n
-           Harimau \n
-           Buaya \n
-           Cheetah
-          
+            Contoh URL::/nhttps://esp-telebot.herokuapp.com/api/sensor/123/65/78 \nhttps://esp-telebot.herokuapp.com/api/test/cobacoba
         `
     );
 });
 
-bot.onText(/\/herbivora/, (msg) => {
-    global_msg_id = msg.chat.id;
-    bot.sendMessage(
-        global_msg_id,
-        `
-        Kambing \n
-        Sapi \n
-        Kuda \n
-        Unta \n
-        Kerbau
-        `
-    );
-});
-
-bot.onText(/\/omnivora/, (msg) => {
-    global_msg_id = msg.chat.id;
-    bot.sendMessage(
-        global_msg_id,
-        `
-        Ikan lele \n
-        Kura-kura \n
-        Landak \n
-        Tupai tanah \n
-        Burung gagak
-        `
-    );
-});
 bot.on('message', (msg) => {
   console.log(msg);
 });
 
 
+/* GET users listing. */
+router.get('/', (req, res, next) => {
+  res.json({
+    "status": 202,
+    "messgae": "Success"
+  });
+});
+
+// https://esp-telebot.herokuapp.com/api/sensor/123/65/78
+router.get('/sensor/:sensor1/:sensor2/:sensor3', (req, res, next) => {
+  try {
+      bot.sendMessage(
+            global_msg_id, //msg.id
+            `Pembacaan Sensor:: ${req.params.sensor1}, ${req.params.sensor2}, ${req.params.sensor3}`
+     );
+      res.json({
+        "status": 202,
+        "message": "Success",
+        "data": {
+          "sensor_1": parseInt(req.params.sensor3),
+          "sensor_2": parseInt(req.params.sensor1),
+          "sensor_3": parseInt(req.params.sensor2)
+        }
+      });
+  } catch (err) {
+      next(err);
+  }
+});
+
+// https://esp-telebot.herokuapp.com/api/test/cobacoba
+router.get('/test/:key', function(req, res, next){
+    bot.sendMessage(
+            global_msg_id, //msg.id
+            `${req.params.key}`
+    );
+    res.json(req.params.key);
+});
 
 
 module.exports = router;
